@@ -1,0 +1,51 @@
+---
+import Layout from "../layouts/BlogPost.astro";
+---
+
+<Layout
+  title="Projects"
+  description="Kristofer Lund's projects"
+  pubDate={new Date("Feb 03 2024")}
+>
+  <p>
+    <a
+      href="https://github.com/kristoferlund/ic-siwe/tree/main/packages/ic_siwe"
+      >ic_siwe</a
+    >
+    is a Rust library that provides the necessary tools for integrating Sign-In with
+    Ethereum (SIWE) into IC canisters, allowing users to sign in using their Ethereum
+    wallets.
+  </p>
+  <p>
+    <a href="https://github.com/kristoferlund/ic-use-internet-identity"
+      >ic-use-internet-identity</a
+    > is a hook that makes it easy to integrate Internet Identity into your React
+    application. It provides a simple interface for logging in and out with the Internet
+    Identity service.
+  </p>
+
+  <p>
+    <a href="https://github.com/kristoferlund/ic-use-actor">ic-use-actor</a> is a
+    React hook and context provider for managing Internet Computer (IC) actors with
+    features like type safety and request/response interceptors. ic-use-actor makes
+    interacting with Internet Computer canisters more fun!
+  </p>
+
+  <p>
+    <a href="https://github.com/kristoferlund/attest-fest">attest-fest</a>
+    Batch create onchain EAS attestations using the power of CSV and copy/paste.
+    Supports any old ETH wallet as well as fancy new Safe multisig wallets. It's
+    an attest fest, yaay!
+  </p>
+
+  <p>
+    <a href="https://github.com/kristoferlund/duet-gpt">duet-gpt</a> is an experimental
+    AI powered CLI tool and semi-autonomous agent that helps developers with coding
+    tasks and file system tasks.
+  </p>
+
+  <p>
+    <a href="https://github.com/kristoferlund/ic-pos">ic-pos</a> Accept Bitcoin payments
+    (ckBTC) on the Internet Computer using this simple Point of Sale (POS) application.
+  </p>
+</Layout>

@@ -1,0 +1,9 @@
+{
+  "canisters": {
+    "blog": {
+      "source": ["dist"],
+      "type": "assets",
+      "build": ["npm run build"]
+    }
+  }
+}

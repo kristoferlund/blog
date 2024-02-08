@@ -1,0 +1,150 @@
+---
+title: 'Publish an Astro website on the Internet Computer'
+description: 'A step-by-step guide to deploying a static website to ICP and hosting it on a custom domain.'
+pubDate: '2024-02-07'
+heroImage: '/240207-publish-static-website.png'
+---
+
+import Alert from '../../components/Alert.astro'
+
+The [Internet Computer](https://internetcomputer.org/) (ICP) is a blockchain-based network that can host programs and data in the form of smart contracts, perform computations on smart contracts in a secure and trustworthy way, and scale infinitely. **Not only can the ICP host smart contracts, but it can also host web pages.** This means that you can open canister smart contracts directly in your browser just like regular websites.
+
+In this article, we will go through the process of deploying a static website to the ICP. We will build the website using [Astro](https://astro.build/) and publish it using the `dfx` command-line tool that comes with the [IC SDK](https://github.com/dfinity/sdk).
+
+**Actually, this article is about the publishing of the website you are currently reading.**
+
+## Install Astro with the Automatic CLI
+
+Astro is just great for building content-driven websites like blogs, marketing, and e-commerce. It is super fast, has great support for MDX, TailwindCSS, and more.
+
+To get started, use the Astro CLI. The CLI will guide you through the process of setting up a new project and installing the necessary dependencies.
+
+```bash
+npm create astro@latest
+```
+
+You will be prompted to answer a few questions about your project. Choose the **blog template**. Once you have answered the questions, the CLI will create a new project and install the necessary dependencies.
+
+If you are new to Astro, please see the full [Astro installation instructions](https://docs.astro.build/en/install/auto/) before proceeding. If you rather prefer copying the code for this project, you can [find it on GitHub](https://github.com/kristoferlund/blog).
+
+## Make sure the project works
+
+Before proceeding, take your new Astro project for a spin and ensure that it works as expected. Navigate to the project directory and start the development server:
+
+```bash
+npm run dev
+```
+
+## Install the IC SDK
+
+Once you have a working Astro project, you can install the [IC SDK](https://github.com/dfinity/sdk):
+
+```bash
+sh -ci "$(curl -fsSL https://internetcomputer.org/install.sh)"
+```
+
+The IC SDK is a software development kit used for creating and managing canister smart contracts on the ICP blockchain. The IC SDK supports [Motoko](https://internetcomputer.org/docs/current/developer-docs/backend/choosing-language) and [Rust](https://internetcomputer.org/docs/current/developer-docs/backend/choosing-language) programming languages by default, but [developers can use other languages as well](https://internetcomputer.org/docs/current/developer-docs/backend/choosing-language). In addition to building custom canister smart contracts, the IC SDK also supports deploying static website assets, which is what we will be doing in this article.
+
+The IC SDK includes `dfx`, the command-line interface for the SDK. `dfx` is used to create, build, deploy, and manage canister smart contracts. `dfx` also includes a local replica of the ICP blockchain, which can be used for testing and development.
+
+<Alert type="note">If you are using a machine running Apple silicon, you will need to have Rosetta installed. You can install Rosetta by running `softwareupdate --install-rosetta` in your terminal.</Alert>
+
+
+## Create a dfx.json file
+
+The `dfx.json` file is the main configuration file for ICP projects. It contains key settings that are required to build, deploy, and manage ICP applications. 
+
+Create a new file called `dfx.json` in the root of your project. Add the following content to the file:
+
+```json
+{
+  "canisters": {
+    "blog": {
+      "source": ["dist"],
+      "type": "assets",
+      "build": ["npm run build"]
+    }
+  }
+}
+```
+
+Let's break down the settings in the `dfx.json` file:
+
+- `canisters`: This is an object that contains the configuration for each canister smart contract in the project. In this case, there is only one canister called `blog`.
+- `source`: This is an array of directories that contain the source code for the canister. In this case, the `dist` directory contains the compiled Astro website.
+- `type`: This is the type of canister. In this case, the canister is of type `assets`, which means it will host static assets like HTML, CSS, and JavaScript files.
+- `build`: This is an array of commands that will be run to build the canister. In this case, the `npm run build` command will be run to build the Astro website.
+
+## Start the local replica
+
+Adding one configuration file to your Astro project, that's it! This is the only configuration you need to deploy a static website to the ICP. To try it out, now start the local replica of the ICP blockchain.
+
+In a separate terminal, run the following command:
+
+```bash
+dfx start
+```
+
+## Deploy the canister
+
+Now that the local replica is running, you can deploy the canister to the ICP. Run the following command to deploy the canister:
+
+```bash
+dfx deploy
+```
+
+The `dfx deploy` command will build the canister using the `npm run build` command, and then deploy the canister to the local replica. Once the deployment is complete, you will see a message with the canister ID and the URL where the canister is hosted.
+
+You should see the first page of your website loading without any issues.
+
+<Alert type="note">Please note that clicking on any links will not work as the local replica does not support routing. During development, you can test the website by running `npm run dev`.</Alert>
+
+## Deploy to the IC
+
+Deploying to the local replica is great for testing and development, but to make the website accessible to the public, you need to deploy it to the ICP mainnet.
+
+Deploying to mainnet uses the same `dfx deploy` command, but now with the `--network` flag set to `ic`. 
+
+```bash
+dfx deploy --network ic
+```
+
+<Alert type="warning">If you try this now, you will get an error message. You need to have a IC developer account and acquire "cycles" before you can deploy to the ICP mainnet.</Alert>
+
+### 1. Create a developer account
+
+On ICP developers accounts, or **identities**, use a private/public key pair for authentication. Accounts are identified by a **principal** which is a generic identifier value that is used for users, canisters, and potentially other future concepts. Each developer account's principal value is derived from the account's public key from the private/public key pair.
+
+To setup a developer account, follow these steps: [Creating a developer account](https://internetcomputer.org/docs/current/developer-docs/setup/accounts)
+
+### 2. Aquire cycles
+
+ICP operates on a global network of nodes maintained by independent providers, who are compensated monthly in ICP tokens for their expenses like hardware and electricity. Canister smart contracts on the protocol pay for their resource usage (like storage and compute) in cycles, not in ICP tokens. These cycles, typically provided by the canister's developer, deplete with use and can be replenished by converting and burning ICP tokens.
+
+<Alert type="tip">You can get cycles for free for testing and development purposes! <br/>[Getting started with free cycles](https://internetcomputer.org/docs/current/developer-docs/setup/cycles/cycles-faucet)</Alert>
+
+### 3. Deploy!
+
+Once setup with a developer account and cycles, you can now deploy the website to the ICP mainnet.
+
+```bash
+dfx deploy --network ic
+```
+
+The `dfx deploy` command will build the canister using the `npm run build` command, and then deploy the canister to the ICP mainnet. Once the deployment is complete, you will see a message with the canister ID and the URL where the canister is hosted. 
+
+<Alert type="tip">The address where this website is hosted is:<br/> [https://avwrm-5iaaa-aaaal-qdhcq-cai.icp0.io](https://avwrm-5iaaa-aaaal-qdhcq-cai.icp0.io)</Alert>
+
+## Configure DNS
+
+Being able to access the website using the canister ID is great for testing and development, but it is not very user-friendly. To make the website more accessible to the public, wouldn't it be great if we could use a custom domain name instead?
+
+Luckily, ICP supports custom domain names for canisters. You can either register the domain with the boundary nodes routing traffic to the canister, or you can host the domain on your own infrastructure. I chose the former (easier) option and configured the domain [kristoferlund.se](https://kristoferlund.se) to point to the boundry nodes.
+
+Configuring the domain name involves creating three DNS records: an `A` record, a `TXT` record, and a `CNAME` record. The exact steps for configuring DNS are layed out in the ICP documentation: [Using custom domains](https://internetcomputer.org/docs/current/developer-docs/production/custom-domain).
+
+<Alert type="important">The DNS setup involves creating a `.ic-assets.json` configuration file. For an Astro website, this file needs to be placed in the `public` directory.</Alert>
+
+## Done!
+
+That's it! You have successfully deployed an Astro website to the ICP. The website is now accessible to the public using a custom domain name.

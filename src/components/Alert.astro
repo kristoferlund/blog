@@ -1,0 +1,41 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  type: "note" | "tip" | "important" | "warning" | "caution";
+}
+
+const colour = {
+  note: "rgb(31, 111, 235)",
+  tip: "rgb(35, 134, 54)",
+  important: "rgb(137, 87, 229)",
+  warning: "rgb(158, 106, 3)",
+  caution: "rgb(218, 54, 51)",
+};
+
+const icon = {
+  note: "mdi:information-slab-circle",
+  tip: "mdi:lightbulb-on-10",
+  important: "mdi:alert-box-outline",
+  warning: "mdi:alert-outline",
+  caution: "mdi:alert-octagon-outline",
+};
+
+const { type } = Astro.props;
+
+const capitalizeFirstLetter = (s: string) =>
+  s[0].toUpperCase() + s.substring(1);
+---
+
+<div
+  class={`flex flex-col px-4 py-1 border-l-4 gap-2`}
+  style={`border-color: ${colour[type]}`}
+>
+  <div class="flex gap-2 items-center" style={`color: ${colour[type]}`}>
+    <Icon name={icon[type]} />
+    {capitalizeFirstLetter(type)}
+  </div>
+  <div>
+    <slot />
+  </div>
+</div>

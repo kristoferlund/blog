@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-black/90 font-atkinson;
+}
+
+article {
+  @apply prose prose-neutral prose-lg prose-invert px-10 md:px-0 mx-auto;
+}
+
+header,
+footer {
+  @apply text-white;
+}
