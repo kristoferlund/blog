@@ -1,24 +1,26 @@
 ---
-title: 'ic-use-internet-identity'
-description: 'A React Hook for easy integration of Internet Identity' 
+title: 'Announcing: ic-use-internet-identity'
+description: 'Integrate Internet Identity into React applications on the Internet Computer (ICP) platform.'
 pubDate: 'Jan 31 2024'
 ---
-This package is a companion hook to [ic-use-actor](https://forum.dfinity.org/t/announcing-ic-use-actor-a-react-hook-to-simplify-communicating-with-canisters/26730). The hook makes it easy to integrate Internet Identity into your React application. It provides a simple interface for logging in and out with the Internet Identity service.
+
+import Alert from '../../components/Alert.astro'
+
+[Internet Identity](https://internetcomputer.org/how-it-works/web-authentication-identity) is a service provided by the [Internet Computer](https://internetcomputer.org/) (ICP) that allows users to authenticate themselves anonymously when interaction with ICP applications.
+
+This package is a companion hook to [ic-use-actor](https://kristoferlund.se/blog/240116-ic-use-actor). The hook makes it easy to integrate Internet Identity into React applications. **It provides a simple interface for logging in and out with the Internet Identity service**.
 
 The goal of this hook is not to provide the most customisable II integration, it is to make it super easy to add login features to React ICP apps. Try it out and let me know what you think! Any features missing? 
 
-- GitHub: https://github.com/kristoferlund/ic-use-internet-identity
-
-- NPM: https://www.npmjs.com/package/ic-use-internet-identity
+- [GitHub](https://github.com/kristoferlund/ic-use-internet-identity) 
+- [NPM](https://www.npmjs.com/package/ic-use-internet-identity) 
 
 The easiest way to try it out is to fork the demo/template application. It is built with TS, Vite and TailwindCSS.
 
-- Demo/template: https://github.com/kristoferlund/ic-use-internet-identity-demo
+- [Demo/template](https://github.com/kristoferlund/ic-use-internet-identity-demo)
+- [**Live demo**](https://x2jdf-giaaa-aaaal-qc66a-cai.icp0.io/) 
 
-- **Live demo:** https://x2jdf-giaaa-aaaal-qc66a-cai.icp0.io/
-
-![header|619x500](upload://6oZrFq7zIjPzSKkjq2NJ0y2wcZW.jpeg)
-
+[![ic-use-internet-identity](/240131-screendump.png)](https://x2jdf-giaaa-aaaal-qc66a-cai.icp0.io/)
 
 ## Features
 
@@ -34,8 +36,7 @@ npm install ic-use-internet-identity
 
 ## Usage
 
-> [!TIP]
-> For a complete example, see the [ic-use-internet-identity-demo](https://github.com/kristoferlund/ic-use-internet-identity-demo) demo project.
+<Alert type="tip">For a complete example, see the [ic-use-internet-identity-demo](https://github.com/kristoferlund/ic-use-internet-identity-demo) demo project.</Alert>
 
 To use `ic-use-internet-identity` in your React application, follow these steps:
 
