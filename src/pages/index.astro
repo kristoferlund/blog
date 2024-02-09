@@ -5,6 +5,7 @@ import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import { getCollection } from "astro:content";
 import FormattedDate from "../components/FormattedDate.astro";
+import { Icon } from "astro-icon/components";
 
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
@@ -45,6 +46,16 @@ const posts = (await getCollection("blog")).sort(
           href="https://internetcomputer.org/">Internet Computer</a
         > (ICP) and
         <a href="https://easscan.org/">Ethereum Attestation Service</a> (EAS).
+      </p>
+      <p class="flex gap-2">
+        Want to collaborate? Contact me! <a
+          href="mailto:kristofer@kristoferlund.se"
+          class="flex gap-1 items-center"
+          ><Icon
+            name="mdi:email"
+            class="w-4 h-4"
+          />kristofer@kristoferlund.se</a
+        >
       </p>
       <p class="text-3xl">–</p>
 
