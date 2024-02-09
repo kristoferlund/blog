@@ -8,7 +8,4 @@ import tailwind from "@astrojs/tailwind";
 export default defineConfig({
   site: "https://avwrm-5iaaa-aaaal-qdhcq-cai.icp0.io",
   integrations: [mdx(), sitemap(), tailwind(), icon()],
-  redirects: {
-    "/blog": "/",
-  },
 });

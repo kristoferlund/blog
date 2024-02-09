@@ -50,7 +50,7 @@ const posts = (await getCollection("blog")).sort(
 
       <section>
         {
-          posts.map((post) => (
+          posts.slice(0, 3).map((post) => (
             <a href={`/blog/${post.slug}/`} class="no-underline">
               <h3>{post.data.title}</h3>
               {post.data.description && post.data.description}
@@ -60,6 +60,8 @@ const posts = (await getCollection("blog")).sort(
           ))
         }
       </section>
+
+      <p><a href="/blog">More articles</a></p>
     </main>
     <Footer />
   </body>
