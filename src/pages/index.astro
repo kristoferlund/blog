@@ -62,7 +62,7 @@ const posts = (await getCollection("blog")).sort(
       <section>
         {
           posts.slice(0, 3).map((post) => (
-            <a href={`/blog/${post.slug}/`} class="no-underline">
+            <a href={`/blog/${post.slug}`} class="no-underline">
               <h3>{post.data.title}</h3>
               {post.data.description && post.data.description}
               <br />
