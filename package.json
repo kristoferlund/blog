@@ -1,7 +1,23 @@
 {
-  "name": "kristofer-blog",
+  "name": "blog",
   "type": "module",
   "version": "0.0.1",
+  "description": "The personal blog of Kristofer Lund, built with Astro and hosted on the Internet Computer.",
+  "author": "Kristofer Lund <kristofer@kristoferlund.se>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kristoferlund/blog"
+  },
+  "bugs": "https://github.com/kristoferlund/blog/issues",
+  "homepage": "https://github.com/kristoferlund/blog",
+  "keywords": [
+    "dfinity",
+    "ic",
+    "internet computer",
+    "astro",
+    "tailwindcss",
+    "typescript"
+  ],
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
