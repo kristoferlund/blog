@@ -11,23 +11,23 @@ The [Internet Computer](https://internetcomputer.org/) (ICP) is a blockchain net
 
 Smart contracts on ICP are called "canisters" and can be written in a variety of programming languages, including Motoko, Rust, C, and now... TypeScript!
 
-This article looks at how you can get started building canisters in TypeScript and how you can use the [Sign in with Ethereum](https://eips.ethereum.org/EIPS/eip-4361) (SIWE) authentication method to easily authenticate users. **Building cross chain applications have never been easier!**
+This article looks at how you can get started building canisters in TypeScript and how you can use the [Sign in with Ethereum](https://eips.ethereum.org/EIPS/eip-4361) (SIWE) authentication method to easily authenticate users. **Building cross-chain applications has never been easier!**
 
-Before we dig in, let's look more closely at how ICP works and how it differs from other blockchain networks. 
+Before we dig in, let's look more closely at how ICP works and how it differs from other blockchain networks.
 
-## ICP runs fullstack applications on the blockchain
+## ICP runs full-stack applications on the blockchain
 
-ICP introduces a novel approach to blockchain technology, offering a decentralized and serverless cloud infrastructure. Unlike traditional blockchains, ICP employs "canisters", an advanced form of smart contracts, to enable the creation of scalable and tamperproof applications directly on the blockchain. This structure allows for the development of a wide range of applications, from social networks to enterprise systems, without relying on external servers or cloud services. Furthermore, ICP's unique reverse gas model simplifies user interaction with blockchain applications, as it doesn't require users to hold tokens or set up a wallet, making it more accessible and user-friendly compared to other blockchain platforms. 
+ICP introduces a novel approach to blockchain technology, offering a decentralized and serverless cloud infrastructure. Unlike traditional blockchains, ICP employs "canisters", an advanced form of smart contracts, to enable the creation of scalable and tamperproof applications directly on the blockchain. This structure allows for the development of a wide range of applications, from social networks to enterprise systems, without relying on external servers or cloud services. Furthermore, ICP's unique reverse gas model simplifies user interaction with blockchain applications, as it doesn't require users to hold tokens or set up a wallet, making it more accessible and user-friendly compared to other blockchain platforms.
 
-Canisters are compiled to WebAssembly. Once deployed, they can be accessed by users through a web interface or through other canisters. Canisters run in full isolation from each other, and can be composed to form larger applications.
+Canisters are compiled to WebAssembly. Once deployed, they can be accessed by users through a web interface or through other canisters. Canisters run in full isolation from each other and can be composed to form larger applications.
 
 ## Use Azle to write TypeScript canisters
 
 [Azle](https://github.com/demergent-labs/azle), developed by [Demergent Labs](https://github.com/demergent-labs), is a significant advancement for the Internet Computer ecosystem, enabling TypeScript developers to write canisters. It achieves feature parity with existing Rust and Motoko CDKs, meaning developers can access almost all IC functionalities through TypeScript. This integration not only simplifies the development process for those familiar with TypeScript but also enriches the Internet Computer's developer community by incorporating the extensive resources and tools available in the TypeScript ecosystem.
 
-One goal of Azle is that you should be able to run virtually any Node.js backend code on the Internet Computer. Already today, you can already run Express, Apollo Server, SQLite, and many other popular Node.js libraries.
+One goal of Azle is that you should be able to run virtually any Node.js backend code on the Internet Computer. Already today, you can run Express, Apollo Server, SQLite, and many other popular Node.js libraries.
 
-## Sign in with Ethereum (SIWE) for cross chain authentication
+## Sign in with Ethereum (SIWE) for cross-chain authentication
 
 The [SIWE](https://eips.ethereum.org/EIPS/eip-4361) standard defines a protocol for off-chain authentication of Ethereum accounts. The protocol is designed to enable Ethereum wallet-based authentication for applications on other platforms, such as the Internet Computer. At the core of the protocol is the SIWE message, which is a signed message that contains the Ethereum address of the user and some additional metadata. The SIWE message is signed by the user's Ethereum wallet and then sent to the application's backend. The backend verifies the signature and Ethereum address and then creates a session for the user.
 
@@ -35,7 +35,7 @@ The [SIWE](https://eips.ethereum.org/EIPS/eip-4361) standard defines a protocol 
 
 ## Let's build!
 
-This article is a not a follow along step by step tutorial, but rather a guide to get you started building your own cross chain applications. Instead of providing a full tutorial that would run the risk of becoming too lengthy, I will dive in and explain critical parts of the example repository this article is based on. 
+This article is not a follow-along step-by-step tutorial, but rather a guide to get you started building your own cross-chain applications. Instead of providing a full tutorial that would run the risk of becoming too lengthy, I will dive in and explain critical parts of the example repository this article is based on.
 
 [![](/240216-azle-1.png)](https://github.com/kristoferlund/ic-siwe-react-demo-ts)
 
@@ -46,14 +46,11 @@ The app is composed of three canisters:
 2. `backend` - The TypeScript canister that stores user profiles and provides an API for the frontend application.
 3. `frontend` - A React/Vite application that is deployed to ICP and interacts with the canisters. Yes, ICP can [host frontend applications](https://kristoferlund.se/blog/240207-publish-static-website) as well!
 
-
-
-
 You can find the full code for the example application on GitHub: [ic-siwe-react-demo-ts](https://github.com/kristoferlund/ic-siwe-react-demo-ts).
 
-## Install the IC SDK 
+## Install the IC SDK
 
-The [IC SDK](https://github.com/dfinity/sdk) is the software development kit used for creating and managing canisters. The IC SDK includes `dfx`, the command-line interface for the SDK. `dfx` is used to create, build, deploy, and manage canisters. `dfx` also includes a local replica of ICP blockchain, which can be used for testing and development.
+The [IC SDK](https://github.com/dfinity/sdk) is the software development kit used for creating and managing canisters. The IC SDK includes `dfx`, the command-line interface for the SDK. `dfx` is used to create, build, deploy, and manage canisters. `dfx` also includes a local replica of the ICP blockchain, which can be used for testing and development.
 
 ```bash
 sh -ci "$(curl -fsSL https://internetcomputer.org/install.sh)"
@@ -77,7 +74,7 @@ cd ic-siwe-react-demo-ts
 npm install
 ```
 
-The project is created as a monorepo and consists of two main packages: `frontend` and `backend`. The `frontend` package is a React/Vite application, and the `backend` package is the Azle TypeScript canister.
+The project is created as a monorepo and consists of two main packages: frontend and backend. The frontend package is a React/Vite application, and the backend package is the Azle TypeScript canister.
 
 ```
 ic-siwe-react-demo-ts
@@ -99,8 +96,7 @@ ic-siwe-react-demo-ts
 
 ## `dfx.json` configures the project canisters
 
-In the root folder of the project, you will find a file called `dfx.json`. This file configures the project canisters and their dependencies. 
-
+In the root folder of the project, you will find a file called dfx.json. This file configures the project canisters and their dependencies.
 ```json
 {
   "canisters": {
@@ -142,7 +138,7 @@ Let's break down the `dfx.json` file:
 
 Building composable applications on ICP is easy thanks to WebAssembly! The functionality to provide Ethereum wallet-based authentication is provided by a [Rust library](https://crates.io/crates/ic_siwe). If we were to build a Rust canister, we could have chosen to integrate the library directly into the canister. However, we are building a TypeScript canister, so that is not possible. Luckily, there is a pre-built canister available that we can use!
 
-By adding the pre built `ic_siwe_provider` canister to the `dfx.json` of an ICP project, we can quickly enable Ethereum wallet-based authentication for our project. This prebuilt works as an API for ETH wallet authentication, and we can use it as a dependency in our project. Later we will interact with it from our frontend application as well as from our backend canister.
+By adding the pre-built `ic_siwe_provider` canister to the `dfx.json` of an ICP project, we can quickly enable Ethereum wallet-based authentication. This prebuilt works as an API for ETH wallet authentication, and we can use it as a dependency in our project. Later we will interact with it from our frontend application as well as from our backend canister.
 
 Let's start a local replica of ICP blockchain now and deploy the `ic_siwe_provider` canister:
 
@@ -150,9 +146,9 @@ Let's start a local replica of ICP blockchain now and deploy the `ic_siwe_provid
 dfx start --background
 ```
 
-Now, we have a fully functional local replica of ICP blockchain running in the background!
+Now, we have a fully functional local replica of the ICP blockchain running in the background!
 
-When deplying the `ic_siwe_provider` canister we need to provide it with some settings to tell it how to behave. These settings are located in the Makefile of the project:
+When deploying the `ic_siwe_provider` canister, we need to provide it with some settings to tell it how to behave. These settings are located in the Makefile of the project:
 
 ```makefile
 create-canisters:
@@ -177,7 +173,7 @@ deploy-provider:
 	)"
 ```
 
-To summarize the settings: We tell the provider canister to create sessions that expire after 1 week, and we tell it that the generated identities will be valid for the `backend` and `ic_siwe_provider` canisters. For more indepth information about the settings, please refer to the [ic_siwe_provider documentation](https://github.com/kristoferlund/ic-siwe/tree/main/packages/ic_siwe_provider).
+To summarize the settings: We tell the provider canister to create sessions that expire after 1 week, and we tell it that the generated identities will be valid for the `backend` and `ic_siwe_provider` canisters. For more in-depth information about the settings, please refer to the [ic_siwe_provider documentation](https://github.com/kristoferlund/ic-siwe/tree/main/packages/ic_siwe_provider).
 
 To deploy the `ic_siwe_provider` canister, run the following commands:
 
@@ -187,6 +183,7 @@ make deploy-provider
 ```
 
 The first command creates all canisters defined in the `dfx.json` file. When creating canisters, they are initially empty. The second command deploys the `ic_siwe_provider` canister and provides it with the settings we defined in the Makefile.
+
 
 The output should look something like this:
 
@@ -271,14 +268,13 @@ export default function Actors({ children }: { children: ReactNode }) {
 
 Again, we are here using the `idlFactory` and `canisterId` from the `declarations` folder to inform the frontend code about the details of the `backend` canister.
 
-In addition to that, note that we are using the `useSiweIdentity` hook to get the user's identity. This hook is provided by the `ic-use-siwe-identity` package. Connecting the `ActorProvider` with the users identity means it can perform authenticated calls on behalf of the user.
+In addition to that, note that we are using the `useSiweIdentity` hook to get the user's identity. This hook is provided by the `ic-use-siwe-identity` package. Connecting the `ActorProvider` with the user's identity means it can perform authenticated calls on behalf of the user.
 
 For more details on the setup of the `ActorProvider`, please refer to the [ic-use-actor](https://github.com/kristoferlund/ic-use-actor) documentation.
 
 ### `components/profile/EditProfile.tsx`
 
 The last component I want to highlight is the `EditProfile` component. This component is used to create and update user profiles. It is a simple form that allows the user to enter their name and a link to an avatar image.
-
 ```tsx
 export default function EditProfile() {
   const { actor } = useActor();
@@ -401,12 +397,11 @@ export default Canister({
   list_profiles,
 });
 ```
-Ok, what happens here?
+Okay, what happens here?
 
-We begin by importing a `Canister` and a `Principal` from the `azle` package. `azle` provides us with all objects and types we need to interact with ICP, conveniently exported at the top level of the package. 
+We begin by importing a `Canister` and a `Principal` from the `azle` package. `azle` provides us with all the objects and types we need to interact with ICP, conveniently exported at the top level of the package. 
 
-Exporting a `Canister` object is the entry point of the canister. In addition to the three methods defined in the service interface, the `backend` canister also has an `init` method that is called when the canister is initialized. The `init` method takes the principal of the `ic_siwe_provider` canister as an argument saves this information for later use.
-
+Exporting a `Canister` object is the entry point of the canister. In addition to the three methods defined in the service interface, the `backend` canister also has an `init` method that is called when the canister is initialized. The `init` method takes the principal of the `ic_siwe_provider` canister as an argument and saves this information for later use.
 ### `user_profiles.ts`
 
 ```typescript
