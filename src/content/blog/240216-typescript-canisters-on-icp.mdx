@@ -1,15 +1,15 @@
 ---
-title: "Creating a cross chain ETH<>ICP application in TypeScript"
-description: 'A deep dive into building a cross chain application on the Internet Computer using TypeScript and Sign in with Ethereum (SIWE) for authentication'
-pubDate: '2024-02-14'
-heroImage: ''
+title: "Create a cross chain ETH/ICP application using Azle and TypeScript"
+description: 'Learn how to build a cross chain applications using TypeScript and Sign in with Ethereum (SIWE) for authentication.'
+pubDate: '2024-02-16'
+heroImage: '/240216-azle-3.png'
 ---
 
 import Alert from '../../components/Alert.astro'
 
 The [Internet Computer](https://internetcomputer.org/) (ICP) is a blockchain network designed to host and execute smart contracts, offering a secure and scalable platform for decentralized applications and data storage.
 
-Smart contracts on ICP are called "canisters" and can be written in a variety of programming languages, including Motoko, Rust, C, and now... TypeScript!
+Smart contracts on ICP are called "canisters" and can be written in a variety of programming languages, including Motoko, Rust, C, and now... TypeScript, thanks to [Azle](https://github.com/demergent-labs/azle).
 
 This article looks at how you can get started building canisters in TypeScript and how you can use the [Sign in with Ethereum](https://eips.ethereum.org/EIPS/eip-4361) (SIWE) authentication method to easily authenticate users. **Building cross-chain applications has never been easier!**
 
@@ -422,7 +422,7 @@ export type UserProfile = typeof UserProfile.tsType;
 export let profileStore = StableBTreeMap<UserKey, UserProfile>(0);
 ```
 
-We need a suitable data structure to store the user profiles. In this file we define a `UserProfile` type and a `profileStore`. The `profileStore` is a `StableBTreeMap` that maps user addresses to user profiles. The name `StableBTreeMap` gives a hint that this is a special kind of map. It has access to what is called stable memory, one of the most powerful features of ICP.
+We need a suitable data structure to store the user profiles. In this file, we define a `UserProfile` type and a `profileStore`. The `profileStore` is a `StableBTreeMap` that maps user addresses to user profiles. The name `StableBTreeMap` gives a hint that this is a special kind of map. It has access to what is called stable memory, one of the most powerful features of ICP.
 
 Stable memory is a feature unique to the Internet Computer Protocol that provides a long-term, persistent data storage option separate from a canister's heap memory. When a canister is stopped or upgraded, the data stored in stable memory is not cleared or removed. The stable memory is preserved throughout the process while any other WebAssembly state is discarded. **The maximum storage limit for the stable memory of one canister is 400GB!**
 
@@ -515,10 +515,12 @@ Access the application by opening the `frontend` canister in your browser. You c
 
 In this article, we have looked at how to build a cross chain application on the Internet Computer using TypeScript and Sign in with Ethereum (SIWE) for authentication. We have seen how to use Azle to write TypeScript canisters and how to use stable memory as a way to store data that survives canister upgrades.
 
-ICP offers a unique and powerful platform for building decentralized applications. In addition to the features we have looked at in this article, ICP also offers some other unique benefits:
+ICP offers a unique and powerful platform for building decentralized applications. In addition to the features we have looked at in this article, ICP also has a number of additional strengths:
 - True onchain randomness
 - Can handle secrets in a secure way even in a decentralized environment
 - Canisters can perform HTTPS outbound requests, effectively making them decentralised oracles
+- Canisters can hold BTC natively
+- Canisters can hold ETH natively
 - Plus much more!
 
-I hope this article has given you a good understanding of how to get started building cross chain applications on ICP. If you have any questions or comments, feel free to reach out to me on [email](kristofer@kristoferlund.se), [X](https://twitter.com/kristoferlund) or [GitHub](https://github.com/kristoferlund).
+I hope this article has given you a good understanding of how to get started building cross chain applications on ICP. If you have any questions or comments, feel free to reach out to me on [email](mailto:kristofer@kristoferlund.se), [X](https://twitter.com/kristoferlund) or [GitHub](https://github.com/kristoferlund).
