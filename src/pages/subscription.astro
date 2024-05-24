@@ -1,0 +1,100 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { Icon } from "astro-icon/components";
+---
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+</head>
+
+<body>
+  <Header />
+  <main class="prose prose-neutral prose-invert px-10 mx-auto md:px-0 prose-lg relative">
+    <h1>Personalized, Expert Development on Subscription</h1>
+    <div class="flex justify-start w-full">
+      <img src="/kristofer.jpg" class="w-32 h-32 mb-5 mt-0 rounded-full border-[1px] border-white mx-auto md:mx-0" />
+    </div>
+    <p>I'm Kristofer, an experienced full-stack developer with a strong foundation in web3 technologies. My expertise
+      spans more than ten years, during which I've honed my skills in the latest technological advancements. With a
+      solid entrepreneurial background, I provide a specialized subscription-based development service designed for
+      forward-thinking businesses. Eliminate the hassle of coordinating with multiple contractors and the concern over
+      rising project expenses.</p>
+
+    <h2>The Kristofer Advantage</h2>
+    <p>Leverage my comprehensive skill set in React, CSS, TypeScript, Rust, Node.js, Docker, and more, to build and
+      scale your web applications. As a co-founder and lead developer with proven success in collaborative platforms, I
+      bring a wealth of knowledge and experience to your projects. My approach is simple: I work on one issue at a time,
+      ensuring quality and focus, and engage in bi-weekly 30-minute calls to align on progress and priorities. Your
+      subscription also includes flexible payment options in the top 50 ERC-20 coins across any EVM chain.</p>
+
+    <h2>Uncomplicated, Transparent Subscription</h2>
+    <p>For a flat monthly fee of $4,000, you gain an experienced partner in your development journey.</p>
+    <p>This exclusive offering includes:</p>
+    <ul>
+      <li>One-on-one issue resolution: Focus on one issue at a time for maximum efficiency and effectiveness.</li>
+      <li>Bi-weekly progress calls: 30-minute consultations every two weeks to keep your projects on track.</li>
+      <li>Wide range of payment options: Flexibility to pay in any top 50 ERC-20 coin on any EVM chain.</li>
+    </ul>
+
+    <h2>FAQs</h2>
+    <h3>Why should I choose a subscription service over hiring an in-house developer?</h3>
+    <p>With over 10 years of experience and a diverse background in entrepreneurship and web3, I bring a broad and deep
+      skill set to your projects. My subscription service offers you the flexibility to scale your development efforts
+      without the commitment and overhead of a full-time hire. You benefit from experienced, focused attention on your
+      projects, with the flexibility to adapt as your needs evolve.</p>
+
+    <h3>How do the bi-weekly calls work?</h3>
+    <p>Every two weeks, we will have a 30-minute call to discuss progress, priorities, and any adjustments needed. This
+      ensures that we stay aligned on your goals and can quickly adapt to any changes in your project needs.</p>
+
+    <h3>Can I see examples of your work?</h3>
+    <p>Yes, you can view my portfolio at <a href="https://dev.kristoferlund.se/">https://dev.kristoferlund.se/</a> and
+      my GitHub at <a href="https://github.com/kristoferlund">https://github.com/kristoferlund</a> for an overview of my
+      skills and past projects.</p>
+
+    <h3>What type of app can you manage?</h3>
+    <p>I specialize in SAAS/web apps, APIs, and Web3 apps. My expertise covers a broad spectrum of core languages
+      including JavaScript, TypeScript and Rust as well as common platforms and frameworks such as React, Node.js,
+      Next.js, Tailwind, and more. This extensive skill set enables me to adeptly handle a wide range of application
+      types, ensuring your project is in capable hands.</p>
+
+    <h3>How do I pause my subscription?</h3>
+    <p>Pausing your subscription is straightforward. If at any point you find all your immediate development needs have
+      been met, you can request a pause. The billing cycle is monthly, so if you pause three weeks into the month, you
+      won't be billed again until the unused week is accounted for. You're afforded the flexibility to resume whenever
+      you're ready, without any penalty or loss of subscription days.</p>
+
+    <h3>What if a feature is not exactly what I was thinking?</h3>
+    <p>While it’s rare, given the constant feedback loop during development, if a feature doesn’t align with your
+      vision, it’s not an issue. I commit to working diligently on the ticket until you are completely satisfied with
+      the outcome. Ensuring your project's success and your satisfaction is my top priority.</p>
+
+    <h3>How fast will I receive development work?</h3>
+    <p>The turnaround time for development work largely depends on the efficiency of our communication. For larger
+      requests, tasks are broken down into manageable tickets. Typically, tickets are resolved within a week, ensuring
+      your project progresses at a steady pace. My goal is to deliver quality work promptly, maintaining a rhythm that
+      supports your business's growth.</p>
+
+    <h3>Is there a limit on how many tickets I can create?</h3>
+    <p>Absolutely not. You have the freedom to submit as many tickets as you wish. Work is conducted on one ticket at a
+      time, allowing for focused and efficient problem-solving. This approach ensures that each task receives the
+      attention it deserves, and as soon as one ticket is completed, the next one begins.</p>
+
+    <h2>Conclusion</h2>
+    <p>Whether you're scaling up or iterating on your product, my subscription service is designed to support your
+      journey every step of the way. Join me in redefining what's possible in web development and beyond.</p>
+    <p>Get started by reaching out directly via email: <a href="mailto:kristofer@kristoferlund.se"
+        class="inline-flex gap-1 items-center">
+        <Icon name="mdi:email" class="w-4 h-4" />kristofer@kristoferlund.se
+      </a>.</p>
+
+    <p></p>
+  </main>
+</body>
+
+</html>
