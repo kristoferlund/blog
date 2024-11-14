@@ -91,7 +91,7 @@ alloy = { git = "https://github.com/ic-alloy/ic-alloy.git", tag = "v0.3.5-icp.0"
 
 ### Read and Parse the IERC20 Source Code
 
-One of the greatest features of the Alloy library is the [`sol!()`](https://docs.rs/alloy-sol-macro/latest/alloy_sol_macro/macro.sol.html) macro that let's you read and parse Solidity source code. This means we can head over to [Etherscan](https://sepolia.etherscan.io/address/0x1c7d4b196cb0c7b01d743fbc6116a902379c7238#code) and just copy the interfaces we are interested in. Alloy does all the heavy lifting, converting the interfaces into Rust code that we can use in our project.
+One of the greatest features of the Alloy library is the [`sol!()`](https://docs.rs/alloy-sol-macro/latest/alloy_sol_macro/macro.sol.html) macro that lets you read and parse Solidity source code. This means we can head over to [Etherscan](https://sepolia.etherscan.io/address/0x1c7d4b196cb0c7b01d743fbc6116a902379c7238#code) and just copy the interfaces we are interested in. Alloy does all the heavy lifting, converting the interfaces into Rust code that we can use in our project.
 
 ```rust
 sol!(
@@ -130,13 +130,13 @@ let address = address.parse::<Address>().map_err(|e| e.to_string())?;
 
 First, we parse the address string into an Alloy `Address` type. This ensures that the address is valid and causes the function to return an error if it is not.
 
-#### 2. Create a RPC service
+#### 2. Create an RPC service
 
 ```Rust
 let rpc_service = RpcService::EthSepolia(EthSepoliaService::Alchemy);
 ```
 
-Next, we create a `RpcService` that instructs the EVM RPC canister to use Alchemy as the RPC provider. See the [list of RPC providers](https://internetcomputer.org/docs/current/developer-docs/multi-chain/ethereum/evm-rpc/overview) the EVM RPC canister supports.
+Next, we create an `RpcService` that instructs the EVM RPC canister to use Alchemy as the RPC provider. See the [list of RPC providers](https://internetcomputer.org/docs/current/developer-docs/multi-chain/ethereum/evm-rpc/overview) the EVM RPC canister supports.
 
 #### 3. Create a config object
 
@@ -144,7 +144,7 @@ Next, we create a `RpcService` that instructs the EVM RPC canister to use Alchem
 let config = IcpConfig::new(rpc_service);
 ```
 
-The config object determines the behaviour of the ICP provider and transport when making the request. The `new` function takes the `RpcService` we created in the previous step and uses default values for the other fields.
+The config object determines the behavior of the ICP provider and transport when making the request. The `new` function takes the `RpcService` we created in the previous step and uses default values for the other fields.
 
 #### 4. Create a provider
 
@@ -162,7 +162,7 @@ let usdc = IERC20::new(token_address, provider);
 
 **How great is this!?** We can just create an instance of the IERC20 contract by calling the `new` method on the `IERC20` struct. The `new` method takes the address of the contract and the provider we created in the previous step.
 
-Once setup, we have access to all contract methods defined in the IERC20 interface.
+Once set up, we have access to all contract methods defined in the IERC20 interface.
 
 #### 6. Get the balance
 
@@ -176,18 +176,18 @@ Finally, we call the `balanceOf` method on the contract to get the balance of th
 
 You have seen how the threshold signature technology of ICP together with Ic-Alloy makes it super easy to interact with Ethereum from ICP smart contracts. 
 
-Using Internet Computer lingo, we call these kinds of applications  “[chain fusion](https://internetcomputer.org/chainfusion)” applications. By chain fusion we mean applications that seamlessly interact with multiple blockchains without the need for intermediaries. 
+Using Internet Computer lingo, we call these kinds of applications “[chain fusion](https://internetcomputer.org/chainfusion)” applications. By chain fusion, we mean applications that seamlessly interact with multiple blockchains without the need for intermediaries. 
 
 Examples of chain fusion use cases include:
 1. **Decentralized Exchanges (DEXs)**: Canisters can securely hold assets from multiple chains and facilitate trustless swaps between them.
 2. **Cross-Chain Messaging**: Canisters can send messages and trigger actions on other chains, enabling complex workflows and interoperability.
 3. **Multi-Asset Wallets**: Canisters can manage a diverse portfolio of assets across various blockchains, providing users with a unified interface for asset management.
-4. **Co-processing and off-chain computation**: Canisters can offload heavy computations to other chains, and use the results in their own computations.
+4. **Co-processing and off-chain computation**: Canisters can offload heavy computations to other chains and use the results in their own computations.
 5. **Autonomous agents and smart contracts**: Canisters can act as autonomous agents, interacting with other chains on behalf of users.
 
-Ic-Alloy comes with a collection of examples on how to perform common EVM operations, how to build wallets and even autonomous agents:
+Ic-Alloy comes with a collection of examples on how to perform common EVM operations, build wallets, and even create autonomous agents:
 1. [ic-alloy-toolkit](https://github.com/ic-alloy/ic-alloy-toolkit): A collection of examples on how to perform common EVM operations. [Live demo](https://u4yi6-xiaaa-aaaap-aib2q-cai.icp0.io)
 2. [ic-alloy-basic-wallet](https://github.com/ic-alloy/ic-alloy-basic-wallet): A basic Ethereum multi-user wallet. [Live demo](https://7vics-6yaaa-aaaai-ap7lq-cai.icp0.io)
-3. [ic-alloy-dca](https://github.com/ic-alloy/ic-alloy-dca): A semi autonomous agent, swapping tokens on Uniswap for you. 
+3. [ic-alloy-dca](https://github.com/ic-alloy/ic-alloy-dca): A semi-autonomous agent, swapping tokens on Uniswap for you. 
 
 **Let's build!**
