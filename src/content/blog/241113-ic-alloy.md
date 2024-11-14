@@ -5,7 +5,7 @@ pubDate: "2024-11-13"
 heroImage: "/241112-hero.jpg"
 ---
 
-[Dfinity](https://dfinity.org/) recently published [Ic-Alloy](https://ic-alloy.dev), a fork of the Rust based Ethereum support library [Alloy](https://alloy.rs). The goal the Ic-Alloy fork is to vastly simplify interactions with EVM based blockchains from the [Internet Computer](https://internetcomputer.org/).
+[Dfinity](https://dfinity.org/) recently published [Ic-Alloy](https://ic-alloy.dev), a fork of the Rust-based Ethereum support library [Alloy](https://alloy.rs). The goal of the Ic-Alloy fork is to vastly simplify interactions with EVM-based blockchains from the [Internet Computer](https://internetcomputer.org/).
 
 In this article, we will explore the features of the Ic-Alloy library, how you can use it to interact with Ethereum, and what kind of chain fusion use cases it enables.
 
@@ -17,14 +17,13 @@ In this article, we will explore the features of the Ic-Alloy library, how you c
 - Ic-Alloy has examples!
   - [ic-alloy-toolkit](https://github.com/ic-alloy/ic-alloy-toolkit): A collection of examples on how to perform common EVM operations. [Live demo](https://u4yi6-xiaaa-aaaap-aib2q-cai.icp0.io)
   - [ic-alloy-basic-wallet](https://github.com/ic-alloy/ic-alloy-basic-wallet): A basic Ethereum multi-user wallet. [Live demo](https://7vics-6yaaa-aaaai-ap7lq-cai.icp0.io)
-  - [ic-alloy-dca](https://github.com/ic-alloy/ic-alloy-dca): A semi autonomous agent, swapping tokens on Uniswap for you. 
-
+  - [ic-alloy-dca](https://github.com/ic-alloy/ic-alloy-dca): A semi-autonomous agent, swapping tokens on Uniswap for you. 
 
 ## Introduction
 
 One of the major strengths the Internet Computer (ICP) has over other blockchains is its ability to **hold Ethereum, Bitcoin, and other assets natively**. Not only can ICP smart contracts hold these assets, but they can also interact with smart contracts on other chains.
 
-Before we dive into the details of the Ic-Alloy, let's first talk about what we mean when we say that that ICP can hold assets natively on other chains.
+Before we dive into the details of Ic-Alloy, let's first talk about what we mean when we say that ICP can hold assets natively on other chains.
 
 ## What Does It Mean to Hold Assets on a Blockchain?
 
@@ -38,7 +37,7 @@ Each blockchain uses a cryptographic scheme that defines how keys and addresses 
 
 The key to ICP being able to hold assets natively on other chains is that **ICP supports more than one cryptographic scheme!** In addition to the scheme used by ICP itself, ICP also supports the following schemes:
 
-- **ECDSA**: This scheme allows ICP smart contracts to securely hold Bitcoin, and interact with Ethereum and other EVM chains such as: **Avalanche, Cardano, Cosmos, Dogecoin, Filecoin, Hedera, Polkadot, Stacks and XRP**.
+- **ECDSA**: This scheme allows ICP smart contracts to securely hold Bitcoin and interact with Ethereum and other EVM chains such as **Avalanche, Cardano, Cosmos, Dogecoin, Filecoin, Hedera, Polkadot, Stacks, and XRP**.
 - **BIP340**: A scheme used in Bitcoin, especially in Taproot-related protocols like **Ordinals, Runes, and BRC-20 tokens**.
 - **Ed25519**: A scheme used in **Solana, Stellar, Toncoin, Cardano, Polkadot, and Ripple**.
 
@@ -50,24 +49,23 @@ To learn more about this, check out my recent article: [What the Schnorr?! Thres
 
 [Alloy](https://alloy.rs) is a Rust library providing a comprehensive toolset for encoding, decoding, and constructing various Ethereum-specific data types, including transaction and contract objects. Alloy supports the creation of Ethereum-compatible applications by offering developers a type-safe, performant, and ergonomic API for interfacing with Ethereum’s core primitives and executing tasks like building, signing, and decoding transactions.
 
-Alloy is a great library for Rust developers working with Ethereum, but it lacks built in support for ICP. This is where [Ic-Alloy](https://ic-alloy.dev) comes in.
+Alloy is a great library for Rust developers working with Ethereum, but it lacks built-in support for ICP. This is where [Ic-Alloy](https://ic-alloy.dev) comes in.
 
 Luckily, Alloy is designed to be modular and easily extensible. This makes it possible to fork Alloy and add support for ICP without having to rewrite the entire library from scratch.
 
-
 ### 1. An ICP Transport Layer
 
-Smart contracts on ICP are called "canisters". Canisters are composable and can call each other, making it possible to build complex applications by combining multiple canisters.
+Smart contracts on ICP are called "canisters." Canisters are composable and can call each other, making it possible to build complex applications by combining multiple canisters.
 
 To interact with Ethereum, application canisters make calls to the EVM RPC canister. This canister acts as a gateway between the Internet Computer and Ethereum, allowing canisters to send requests to Ethereum's JSON-RPC API and receive responses.
 
-The EVM RPC canister in turn uses another core feature of ICP - [HTTPS Outcalls](https://internetcomputer.org/https-outcalls) - making it possible for smart contracts to communicate with the outside world.
+The EVM RPC canister in turn uses another core feature of ICP—[HTTPS Outcalls](https://internetcomputer.org/https-outcalls)—making it possible for smart contracts to communicate with the outside world.
 
-Ic-Alloy adds an ICP Transport Layer to Alloy, abstracting away the complexity of routing requests through the EVM RPC canister or an external RPC proxy. This layer ensures that all requests to Ethereum are routed correctly, that requests and responses are properly typed, serialized, etc.
+Ic-Alloy adds an ICP Transport Layer to Alloy, abstracting away the complexity of routing requests through the EVM RPC canister or an external RPC proxy. This layer ensures that all requests to Ethereum are routed correctly and that requests and responses are properly typed, serialized, etc.
 
 ### 2. An ICP Signer
 
-Alloy signers are responsible for .. you guessed it .. signing transactions. Alloy offers some built in signers for using Ledger and Trezor physical wallets, as well as various software signers for signing transactions in memory where the private key is accessible to the program.
+Alloy signers are responsible for... you guessed it... signing transactions. Alloy offers some built-in signers for using Ledger and Trezor physical wallets, as well as various software signers for signing transactions in memory where the private key is accessible to the program.
 
 Ic-Alloy extends Alloy with an ICP Signer that taps into the [threshold signature](https://internetcomputer.org/how-it-works/chain-key-technology) capabilities of ICP. A canister never has direct access to the private keys used to sign transactions. Instead, the canister sends a request to the subnet nodes, which collaboratively generate the signature using a threshold signing protocol.
 
@@ -75,17 +73,17 @@ Ic-Alloy extends Alloy with an ICP Signer that taps into the [threshold signatur
 
 Alloy providers facilitate the interaction with Ethereum by managing JSON-RPC requests and responses. Providers offer utility functions for common tasks like querying the state of a smart contract, sending transactions, and estimating gas costs.
 
-The ICP Provider in Ic-Alloy extends the Alloy provider with ICP specific functionality. For example, ICP canisters cannot easily work with the popular Rust library Tokio, as it is not fully compatible with the Internet Computer. Instead, ICP canisters have to rely on [IC timers](https://internetcomputer.org/docs/current/developer-docs/smart-contracts/advanced-features/periodic-tasks/) to do things like waiting for a transaction to be mined or subscribing to log events.
+The ICP Provider in Ic-Alloy extends the Alloy provider with ICP-specific functionality. For example, ICP canisters cannot easily work with the popular Rust library Tokio, as it is not fully compatible with the Internet Computer. Instead, ICP canisters have to rely on [IC timers](https://internetcomputer.org/docs/current/developer-docs/smart-contracts/advanced-features/periodic-tasks/) to do things like waiting for a transaction to be mined or subscribing to log events.
 
 ## Show Me Some Code Already!
 
-Let's do a walk through of how to use Ic-Alloy to get the balance of an ERC-20 token on Ethereum. This should give you a good idea of how Ic-Alloy works and how you can use it in your own projects.
+Let's do a walkthrough of how to use Ic-Alloy to get the balance of an ERC-20 token on Ethereum. This should give you a good idea of how Ic-Alloy works and how you can use it in your own projects.
 
-You find more docs, examples etc on the [Ic-Alloy website](https://ic-alloy.dev).
+You’ll find more docs, examples, etc., on the [Ic-Alloy website](https://ic-alloy.dev).
 
 ### Add Ic-Alloy to Your Project
 
-To use the ICP enabled fork of Alloy in your project, add this to `Cargo.toml`:
+To use the ICP-enabled fork of Alloy in your project, add this to `Cargo.toml`:
 
 ```toml
 alloy = { git = "https://github.com/ic-alloy/ic-alloy.git", tag = "v0.3.5-icp.0", features = ["icp"]}
