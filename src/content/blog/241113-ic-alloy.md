@@ -5,9 +5,9 @@ pubDate: "2024-11-13"
 heroImage: "/241112-hero.jpg"
 ---
 
-[Dfinity](https://dfinity.org/) recently published [Ic-Alloy](https://ic-alloy.dev), a fork of the Rust-based Ethereum support library [Alloy](https://alloy.rs). The goal of the Ic-Alloy fork is to vastly simplify interactions with EVM-based blockchains from the [Internet Computer](https://internetcomputer.org/).
+[DFINITY](https://dfinity.org/) recently published [Ic-Alloy](https://ic-alloy.dev), a fork of the Rust-based Ethereum support library [Alloy](https://alloy.rs). The goal of the Ic-Alloy fork is to vastly simplify interactions with EVM-based blockchains from the [Internet Computer](https://internetcomputer.org/).
 
-In this article, we will explore the features of the Ic-Alloy library, how you can use it to interact with Ethereum, and what kind of chain fusion use cases it enables.
+In this article, we will explore the features of the Ic-Alloy library, how you can use it to interact with Ethereum, and what kind of Chain Fusion use cases it enables.
 
 **TL;DR:** 
 - Ic-Alloy extends Alloy with the following features:
@@ -176,9 +176,9 @@ Finally, we call the `balanceOf` method on the contract to get the balance of th
 
 You have seen how the threshold signature technology of ICP together with Ic-Alloy makes it super easy to interact with Ethereum from ICP smart contracts. 
 
-Using Internet Computer lingo, we call these kinds of applications “[chain fusion](https://internetcomputer.org/chainfusion)” applications. By chain fusion, we mean applications that seamlessly interact with multiple blockchains without the need for intermediaries. 
+Using Internet Computer lingo, we call these kinds of applications “[Chain Fusion](https://internetcomputer.org/chainfusion)” applications. By Chain Fusion, we mean applications that seamlessly interact with multiple blockchains without the need for intermediaries. 
 
-Examples of chain fusion use cases include:
+Examples of Chain Fusion use cases include:
 1. **Decentralized Exchanges (DEXs)**: Canisters can securely hold assets from multiple chains and facilitate trustless swaps between them.
 2. **Cross-Chain Messaging**: Canisters can send messages and trigger actions on other chains, enabling complex workflows and interoperability.
 3. **Multi-Asset Wallets**: Canisters can manage a diverse portfolio of assets across various blockchains, providing users with a unified interface for asset management.
@@ -188,6 +188,6 @@ Examples of chain fusion use cases include:
 Ic-Alloy comes with a collection of examples on how to perform common EVM operations, build wallets, and even create autonomous agents:
 1. [ic-alloy-toolkit](https://github.com/ic-alloy/ic-alloy-toolkit): A collection of examples on how to perform common EVM operations. [Live demo](https://u4yi6-xiaaa-aaaap-aib2q-cai.icp0.io)
 2. [ic-alloy-basic-wallet](https://github.com/ic-alloy/ic-alloy-basic-wallet): A basic Ethereum multi-user wallet. [Live demo](https://7vics-6yaaa-aaaai-ap7lq-cai.icp0.io)
-3. [ic-alloy-dca](https://github.com/ic-alloy/ic-alloy-dca): A semi-autonomous agent, swapping tokens on Uniswap for you. 
+3. [ic-alloy-dca](https://github.com/ic-alloy/ic-alloy-dca): A semi-autonomous agent, swapping ERC-20 tokens on Uniswap for you. 
 
 **Let's build!**

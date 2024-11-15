@@ -20,7 +20,7 @@ First, let’s understand the basics of threshold signatures, a powerful technol
 
 ## Threshold Signatures: A Primer
 
-In traditional digital signatures, a single private key is used to sign a message, and the corresponding public key can be used to verify the signature. In a blockchain context, the public key is used to derive an address, and the private key is used to sign transactions. If you are using Ledger to interact with a blockchain, the private key is stored on the device. If you use Metamask, the private key is stored in your browser.
+In traditional digital signatures, a single private key is used to sign a message, and the corresponding public key can be used to verify the signature. In a blockchain context, the public key is used to derive an address, and the private key is used to sign transactions. As an example, if you are using Ledger to interact with a blockchain, the private key is stored on the device and if using Metamask, the private key is stored in your browser.
 
 In threshold signatures, the private key is instead divided into multiple shares, and a subset of these shares is required to collectively sign a message. This approach offers several advantages:
 
@@ -75,9 +75,9 @@ Let's wrap up this short article.
 
 You have learnt how threshold signatures allow ICP canisters to interact natively with other blockchains, securely holding assets and signing transactions. This capability opens up a world of possibilities for decentralized applications and cross-chain interactions.
 
-Using Internet Computer lingo, we call this capability “[chain fusion](https://internetcomputer.org/chainfusion)”, where different blockchains can seamlessly interact and share assets without the need for intermediaries. 
+Using Internet Computer lingo, we call this capability “[Chain Fusion](https://internetcomputer.org/chainfusion)”, where different blockchains can seamlessly interact and share assets without the need for intermediaries. 
 
-Examples of chain fusion use cases include:
+Examples of Chain Fusion use cases include:
 1. **Decentralized Exchanges (DEXs)**: Canisters can securely hold assets from multiple chains and facilitate trustless swaps between them.
 2. **Cross-Chain Messaging**: Canisters can send messages and trigger actions on other chains, enabling complex workflows and interoperability.
 3. **Multi-Asset Wallets**: Canisters can manage a diverse portfolio of assets across various blockchains, providing users with a unified interface for asset management.
@@ -90,7 +90,7 @@ A number of projects are already using threshold Schnorr!
 
 ## Conclusion
 
-Chain fusion and threshold signatures are exciting developments promising a future where blockchains can seamlessly interact and share assets in a trustless, secure manner. With support for both Threshold ECDSA and Threshold Schnorr signatures, the Internet Computer now supports most major blockchains.
+Chain Fusion and threshold signatures are exciting developments promising a future where blockchains can seamlessly interact and share assets in a trustless, secure manner. With support for both Threshold ECDSA and Threshold Schnorr signatures, the Internet Computer now supports most major blockchains.
 
 The [internetcomputer.org](https://internetcomputer.org/docs/current/developer-docs/getting-started/network-overview) website provides detailed documentation on how to implement threshold signatures in your smart contracts. 
 
