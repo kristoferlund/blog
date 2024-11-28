@@ -26,7 +26,7 @@ In threshold signatures, the private key is instead divided into multiple shares
 
 1. **Enhanced Security**: Since no single entity possesses the entire private key, the risk of a single point of failure or compromise is reduced.
 2. **Resilience**: Even if some key shares are compromised, the threshold number of shares required for signing ensures that the signature remains secure.
-3. **Flexibility**: Threshold signatures can be used for multi-signature schemes, where multiple parties collectively sign a message, or for threshold schemes where a subset of nodes in a network collaboratively sign transactions.
+3. **Decentralized Control**: Threshold signatures allow multiple parties to jointly control assets without relying on a central authority, enabling true decentralized custody. This is particularly beneficial for DAOs or multi-signature wallets.
 
 On ICP, the nodes of the subnet hosting a canister hold the key shares. These nodes are collectively responsible for generating and managing the key shares required for threshold signatures. 
 
