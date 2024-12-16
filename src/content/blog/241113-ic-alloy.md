@@ -1,23 +1,25 @@
 ---
-title: "Build Chain Fusion Blockchain Applications with IC-Alloy and the Internet Computer"
+title: "Build Multi Chain Applications with IC-Alloy and the Internet Computer"
 description: "IC-Alloy radically simplifies interacting with the EVM from Rust based canisters."
 pubDate: "2024-11-28"
 heroImage: "/241128-hero.png"
 ---
 
-[DFINITY](https://dfinity.org/) recently published [IC-Alloy](https://ic-alloy.dev), a fork of the Rust-based Ethereum support library [Alloy](https://alloy.rs). The goal of the IC-Alloy fork is to vastly simplify interactions with EVM-based blockchains from the [Internet Computer](https://internetcomputer.org/).
+[IC-Alloy](https://ic-alloy.dev) is a fork of the Rust-based Ethereum support library [Alloy](https://alloy.rs). The goal of IC-Alloy is to vastly simplify interactions with EVM-based blockchains from the [Internet Computer](https://internetcomputer.org/).
 
 In this article, we will explore the features of the IC-Alloy library, how you can use it to interact with Ethereum, and what kind of Chain Fusion use cases it enables.
 
-**TL;DR:** 
-- IC-Alloy extends Alloy with the following features:
-  - **ICP Transport Layer**: Routes requests through the IC EVM RPC canister or an external RPC proxy.
-  - **ICP Signer**: Abstracts away the complexity of signing EVM messages and transactions on ICP.
-  - **ICP Provider**: Provides a simple interface for interacting with the IC EVM RPC canister.
-- IC-Alloy has examples!
-  - [ic-alloy-toolkit](https://github.com/ic-alloy/ic-alloy-toolkit): A collection of examples on how to perform common EVM operations. [Live demo](https://u4yi6-xiaaa-aaaap-aib2q-cai.icp0.io)
-  - [ic-alloy-basic-wallet](https://github.com/ic-alloy/ic-alloy-basic-wallet): A basic Ethereum multi-user wallet. [Live demo](https://7vics-6yaaa-aaaai-ap7lq-cai.icp0.io)
-  - [ic-alloy-dca](https://github.com/ic-alloy/ic-alloy-dca): A semi-autonomous agent, swapping tokens on Uniswap for you. 
+**TL;DR:**
+
+IC-Alloy extends Alloy with the following features:
+
+- **ICP Transport Layer**: Routes requests through the IC EVM RPC canister or an external RPC proxy.
+- **ICP Signer**: Abstracts away the complexity of signing EVM messages and transactions on ICP.
+- **ICP Provider**: Provides a simple interface for interacting with the IC EVM RPC canister.
+  IC-Alloy has examples!
+- [ic-alloy-toolkit](https://github.com/ic-alloy/ic-alloy-toolkit): A collection of examples on how to perform common EVM operations. [Live demo](https://u4yi6-xiaaa-aaaap-aib2q-cai.icp0.io)
+- [ic-alloy-basic-wallet](https://github.com/ic-alloy/ic-alloy-basic-wallet): A basic Ethereum multi-user wallet. [Live demo](https://7vics-6yaaa-aaaai-ap7lq-cai.icp0.io)
+- [ic-alloy-dca](https://github.com/ic-alloy/ic-alloy-dca): A semi-autonomous agent, swapping tokens on Uniswap for you.
 
 ## Introduction
 
@@ -75,7 +77,7 @@ Alloy providers facilitate the interaction with Ethereum by managing JSON-RPC re
 
 The ICP Provider in IC-Alloy extends the Alloy provider with ICP-specific functionality. For example, ICP canisters cannot easily work with the popular Rust library Tokio, as it is not fully compatible with the Internet Computer. Instead, ICP canisters have to rely on [IC timers](https://internetcomputer.org/docs/current/developer-docs/smart-contracts/advanced-features/periodic-tasks/) to do things like waiting for a transaction to be mined or subscribing to log events.
 
-## Show Me Some Code Already!
+## Show Me Some Code Already
 
 Let's do a walkthrough of how to use IC-Alloy to get the balance of an ERC-20 token on Ethereum. This should give you a good idea of how IC-Alloy works and how you can use it in your own projects.
 
@@ -118,7 +120,7 @@ async fn get_balance(address: String) -> Result<String, String> {
     match result {
         Ok(balance) => Ok(balance._0.to_string()),
         Err(e) => Err(e.to_string()),
-    }    
+    }
 }
 ```
 
@@ -174,11 +176,12 @@ Finally, we call the `balanceOf` method on the contract to get the balance of th
 
 ## Building Chain Fusion Applications
 
-You have seen how the threshold signature technology of ICP together with IC-Alloy makes it super easy to interact with Ethereum from ICP smart contracts. 
+You have seen how the threshold signature technology of ICP together with IC-Alloy makes it super easy to interact with Ethereum from ICP smart contracts.
 
-Using Internet Computer lingo, we call these kinds of applications “[Chain Fusion](https://internetcomputer.org/chainfusion)” applications. By Chain Fusion, we mean applications that seamlessly interact with multiple blockchains without the need for intermediaries. 
+With Internet Computer lingo, we call these multi chain applications “[Chain Fusion](https://internetcomputer.org/chainfusion)” applications. By Chain Fusion, we mean applications that seamlessly fuse together blockchains without the need for intermediaries.
 
 Examples of Chain Fusion use cases include:
+
 1. **Decentralized Exchanges (DEXs)**: Canisters can securely hold assets from multiple chains and facilitate trustless swaps between them.
 2. **Cross-Chain Messaging**: Canisters can send messages and trigger actions on other chains, enabling complex workflows and interoperability.
 3. **Multi-Asset Wallets**: Canisters can manage a diverse portfolio of assets across various blockchains, providing users with a unified interface for asset management.
@@ -186,8 +189,9 @@ Examples of Chain Fusion use cases include:
 5. **Autonomous agents and smart contracts**: Canisters can act as autonomous agents, interacting with other chains on behalf of users.
 
 IC-Alloy comes with a collection of examples on how to perform common EVM operations, build wallets, and even create autonomous agents:
+
 1. [ic-alloy-toolkit](https://github.com/ic-alloy/ic-alloy-toolkit): A collection of examples on how to perform common EVM operations. [Live demo](https://u4yi6-xiaaa-aaaap-aib2q-cai.icp0.io)
 2. [ic-alloy-basic-wallet](https://github.com/ic-alloy/ic-alloy-basic-wallet): A basic Ethereum multi-user wallet. [Live demo](https://7vics-6yaaa-aaaai-ap7lq-cai.icp0.io)
-3. [ic-alloy-dca](https://github.com/ic-alloy/ic-alloy-dca): A semi-autonomous agent, swapping ERC-20 tokens on Uniswap for you. 
+3. [ic-alloy-dca](https://github.com/ic-alloy/ic-alloy-dca): A semi-autonomous agent, swapping ERC-20 tokens on Uniswap for you.
 
 **Let's build!**
