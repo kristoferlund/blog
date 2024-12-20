@@ -5,6 +5,8 @@ pubDate: "2024-11-28"
 heroImage: "/241128-hero.png"
 ---
 
+One of the major strengths the Internet Computer (ICP) has over other blockchains is its ability to **hold Ethereum, Bitcoin, and other assets natively**. Not only can ICP smart contracts hold these assets, but they can also interact with smart contracts on other chains.
+
 [IC-Alloy](https://ic-alloy.dev) is a fork of the Rust-based Ethereum support library [Alloy](https://alloy.rs). The goal of IC-Alloy is to vastly simplify interactions with EVM-based blockchains from the [Internet Computer](https://internetcomputer.org/).
 
 In this article, we will explore the features of the IC-Alloy library, how you can use it to interact with Ethereum, and what kind of Chain Fusion use cases it enables.
@@ -16,7 +18,9 @@ IC-Alloy extends Alloy with the following features:
 - **ICP Transport Layer**: Routes requests through the IC EVM RPC canister or an external RPC proxy.
 - **ICP Signer**: Abstracts away the complexity of signing EVM messages and transactions on ICP.
 - **ICP Provider**: Provides a simple interface for interacting with the IC EVM RPC canister.
-  IC-Alloy has examples!
+
+IC-Alloy has examples!
+
 - [ic-alloy-toolkit](https://github.com/ic-alloy/ic-alloy-toolkit): A collection of examples on how to perform common EVM operations. [Live demo](https://u4yi6-xiaaa-aaaap-aib2q-cai.icp0.io)
 - [ic-alloy-basic-wallet](https://github.com/ic-alloy/ic-alloy-basic-wallet): A basic Ethereum multi-user wallet. [Live demo](https://7vics-6yaaa-aaaai-ap7lq-cai.icp0.io)
 - [ic-alloy-dca](https://github.com/ic-alloy/ic-alloy-dca): A semi-autonomous agent, swapping tokens on Uniswap for you.
