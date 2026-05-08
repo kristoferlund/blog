@@ -1,38 +1,34 @@
 ---
 title: "Build the Shared Memory First"
-description: "The transition to an agentic organization starts with building shared memory that agents can read, reason over, and use to create the next layer of organisational intelligence."
+description: "The transition to an agentic organisation starts with building shared memory that agents can read, reason over, and use to create the next layer of organisational intelligence."
 pubDate: "2026-05-05"
 ---
 
-The agentic organisation is coming.
+The agentic shift is coming.
 
-The real question is not whether your company will use agents. It is where you begin.
+I am not talking about the glamorous or the disruptive version of AI transformation. Not about replacing the marketing department with bots, or pretending that a whole developer organisation can be rebuilt overnight around a swarm of agents.
 
-If you are building software, one of the first serious action items is obvious: **create a shared memory for the organisation**.
+If you are building software, one of the first serious action items should be to **create a shared memory for the organisation**.
 
-Not a chatbot powered by a folder of some old PDF documents. Not another internal wiki that no one has the energy to update and that is already out of date by the time someone reads it.
+This shift is more basic, and more useful: it increases the potential of the organisation by establishing a knowledge foundation that everything else can lean on.
 
-I mean a **machine-readable source of truth** that agents can read, write to, reason over, and use as context for the next piece of work.
+The knowledge foundation is not a chatbot powered by a folder of old PDF documents. It is not another internal wiki that no one has the energy to update, and that is already out of date by the time someone reads it.
 
-This is neither the glamorous nor the disruptive version of AI transformation. It is not about replacing your whole marketing department with bots, or pretending that a developer organisation can be rebuilt overnight around a swarm of agents.
+The shared memory has to be a **machine-readable source of truth** that agents can read, write to, reason over, and use as context for the next piece of work.
 
-It is more basic, and more useful, than that: increasing the potential of the organisation by establishing a knowledge foundation that everything else can lean on.
+Fast-moving software companies know how difficult this is to create and maintain.
 
-Fast-moving software companies know the struggle.
+Engineers ship features. Product changes daily. Support needs answers. Marketing needs launch copy. The AI assistant needs current context. Discord users ask questions. Zendesk tickets arrive. Everyone needs the same truth, but every channel needs it in a different format.
 
-Engineers ship features. Product changes daily. Support needs answers. Marketing needs launch copy. The AI assistant needs current context. Discord users ask questions. Zendesk tickets arrive. Everyone needs the same truth, but every channel wants that truth in a different format.
+Documentation is usually where the shared truth starts to drift. The product says one thing. The Help Center says another. Support has a newer answer in Slack. Marketing is working from a draft. The AI assistant is reading yesterday's or last week's context. When the drift happens across many features, channels, and teams, you do not just have a documentation problem. You have an **organisational coordination problem**.
 
-Documentation is usually where reality starts to drift. The product says one thing. The Help Center says another. Support has a newer answer in Slack. Marketing is working from a draft. The AI assistant is at best reading yesterday's or last week's context.
+Agents allow you to take back control over that process.
 
-When that drift happens across many features, channels, and teams, you do not just have a documentation problem. You have an **organisational coordination problem**.
-
-That is why the knowledge base is such a good place to start.
-
-At Caffeine, we are building an agentic publishing flow around our knowledge base. When engineers push code changes, an agent reads those changes and generates Markdown knowledge-base material. That material becomes the source artefact. From there, other agents publish it as Help Center HTML, turn it into RAG-ready content, and expose it through an MCP server so other bots and agents can use it.
+At Caffeine, we built an agentic publishing flow around our knowledge base. When engineers push code changes, an agent reads those changes and generates Markdown knowledge-base material. That material becomes the source artefact. From there, other agents publish it as Help Center HTML, turn it into RAG-ready content, and expose it through an MCP server so other bots and agents can use it.
 
 ![260505-overview](/260505-overview.svg)
 
-The same source of truth can then feed four channels:
+The same source of truth feeds four channels:
 
 - The public Help Center
 - The Caffeine AI assistant
@@ -42,10 +38,6 @@ The same source of truth can then feed four channels:
 Knowledge about a new feature can move from code change to all four channels in about 30 minutes.
 
 That speed matters. If a user asks about a feature shortly after it ships, the answer should not depend on whether someone had time to manually update three systems and brief the support team.
-
-But the bigger shift is not speed.
-
-The bigger shift is that the output becomes part of the organisation's shared memory.
 
 This is the agentic loop in practice:
 
@@ -62,7 +54,7 @@ That changes the shape of the system.
 
 A Help Center article is no longer only a public support page. It is also an artefact in the organisation's world model. A RAG document is no longer only retrieval material for one assistant. It is part of the shared context layer. An MCP server is not just an integration point. It is a way for other agents to query the organisation's current understanding of the product.
 
-This is what the transition to an agentic organisation actually looks like.
+This is what the shift to the agentic organisation actually looks like.
 
 Not one giant AI transformation project. Not a top-down declaration that the company is now agentic. A set of practical loops where artefacts become shared intelligence, and shared intelligence feeds the next agent.
 
@@ -74,9 +66,9 @@ For a software company, code changes are an obvious starting signal. They descri
 
 The knowledge base is not the end state. It is one loop.
 
-But it is a high-leverage loop because it sits close to the product, close to the customer, and close to the places where information drift becomes expensive.
+It is a high-leverage loop because it sits close to the product, close to the customer, and close to the places where information drift becomes expensive.
 
-It also sets up the next loop.
+The knowledge base loop sets up the next loop.
 
 Once the Caffeine AI assistant, Discord support bot, and Zendesk automated replies can all lean on the same shared product knowledge, they do not only answer questions. They create new artefacts.
 
@@ -88,7 +80,7 @@ Those interactions become the next layer of signal.
 
 That is the compounding part. The shared knowledge base makes the bots more useful. The bots then generate new artefacts from real user interactions. Those artefacts can feed the next iteration of the company world model. And as each new layer of signal is added, **the agentic organisation becomes more competent**.
 
-I think that makes the knowledge base one of the lowest-hanging fruits in the transition.
+The knowledge base is low-hanging fruit in the transition.
 
 If you want to become an agentic organisation, do not start by asking how many bots you can deploy.
 
